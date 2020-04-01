@@ -1,0 +1,23 @@
+{
+  "AUTHENTICATION": {
+    "path": "auth",
+    "LOGIN": "/login",
+    "SIGNUP": "/register",
+    "FORGOTPASSWORD": "/reset-password",
+    "VERIFYACCOUNT": "/verify-account",
+    "VERIFYTOKEN": "/token-verification",
+    "CHANGEPASSWORD": "/change-password"
+  },
+  "USER": {
+    "path": "user",
+    "FETCH_ALL": "/",
+    "FETCH": "/:username",
+    "FETCH_ADMINS": "/admin"
+  },
+  "BLOG": {
+    "path": "blog",
+    "FETCH_ALL": "/",
+    "FETCH": "/:blogId",
+    "FETCH_USER": "/user/:userId"
+  }
+}
