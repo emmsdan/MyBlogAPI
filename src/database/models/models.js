@@ -1,3 +1,5 @@
+import {randomNumber} from '../../utils/utils';
+
 const {
   BlogPostSchema,
   BlogCommentSchema,
@@ -6,16 +8,18 @@ const {
 } = require('../schema');
 
 module.exports = (sequelize, DataTypes) => {
-  const BlogPosts = sequelize.define('BlogPosts', BlogPostSchema(DataTypes), {});
+  const extras = { paranoid: true };
+
+  const BlogPosts = sequelize.define('BlogPosts', BlogPostSchema(DataTypes), extras);
 
   const Initiator = sequelize.define('Initiator',
-    InitiatorSchema(DataTypes), {});
+    InitiatorSchema(DataTypes), extras);
 
   const BlogViews = sequelize.define('BlogViews',
-    BlogViewSchema(DataTypes), {});
+    BlogViewSchema(DataTypes), extras);
 
   const BlogComments = sequelize.define('BlogComments',
-    BlogCommentSchema(DataTypes), {});
+    BlogCommentSchema(DataTypes), extras);
 
   /** ------------- Setup Relationships --___---- **/
 
@@ -38,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
 
   /** -------------- Setup Hooks -----____----- **/
   BlogPosts.beforeCreate(async (fields) => {
-    const createSlug = fields.title.replace(/[ ]/g,'_') + '_' +fields.userId;
+    const createSlug = fields.title.replace(/ /g,'_') + '-' +randomNumber();
     fields.slug = createSlug;
   });
 

@@ -12,7 +12,7 @@ export const UUIDV4 = UUID;
 
 export const STRING = Joi.string();
 
-export const ENUM = (array) => Joi.string().trim().valid(array);
+export const ENUM = (...args) => Joi.string().trim().valid(...args);
 
 export const EMAIL = Joi.string().email();
 
@@ -20,7 +20,6 @@ export const NUMBER = Joi.number();
 
 export const joify = (object, attr = [], usage = null) => {
   if (!isObject(object)) return  ('Not an Object: NaO');
-
   const newObject = {};
   const use = (typeof attr === 'string') ? attr : usage;
   Object.entries(object).forEach(([key, value]) => {
@@ -43,6 +42,7 @@ export const joify = (object, attr = [], usage = null) => {
 
 export const DataTypes = {
   'STRING': STRING,
+  'TEXT': STRING,
   'string': STRING,
   'UUIDV4': UUID,
   'UUID': UUID,

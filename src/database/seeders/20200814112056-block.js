@@ -1,0 +1,97 @@
+'use strict';
+module.exports = {
+  up: (queryInterface) => {
+
+    return queryInterface.bulkInsert('BlogPosts', [
+      {
+        id: 'ad98d236-abb0-4cd2-95ec-d4c7f6210c88',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'yambarn',
+        title: 'Yambarn.io',
+        thumbnail: '/portfolio/yambarn.png',
+        description: 'Share and discover local technology products.',
+        body: 'Site to discover new products in Nigeria technology space.',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: '4950f614-547a-487d-9467-47a3f9f60027',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'access-gate-way',
+        title: 'Access Gateway',
+        thumbnail: '/portfolio/access-gate-way.png',
+        description: 'A simple and secure way to send and receive payment globally',
+        body: 'A simple and secure way to send and receive payment globally',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: '672340e1-1337-4714-be38-d4f574eab33b',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'the-ivr',
+        title: 'The IVR',
+        thumbnail: '/portfolio/ivr.png',
+        description: 'Voice Automated Customer Service',
+        body: 'Voice Automated Customer Service',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: '9400e737-08ae-41e6-a147-5265540bc703',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'onekiosk',
+        title: 'One Kiosk Africa',
+        thumbnail: '/portfolio/onekiosk.png',
+        description: 'Building A Sustainable E-commerce Model For Africa And The Globe.',
+        body: 'Provide a safe, fast and reliable e-commerce platform for our users, capable of restoring Africa’s e-commerce space and integrating the informal retail space. With a target delivery turnaround of 59 minutes while serving as a catalyst towards reducing unemployment in Africa and everywhere we operate.',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: '79e6ee30-cdc5-4cf2-92b8-2f614d4c4e97',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'beta-banking',
+        title: 'Beta Banking',
+        thumbnail: '/portfolio/beta.png',
+        description: 'Quick banking for Traders',
+        body: 'Quick banking for Traders',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+  
+      {
+        id: '99417aaf-9162-461e-88be-5ba2f82b2412',
+        userId: 'a054f503-1423-4e15-87eb-8870b4ce31f8',
+        slug: 'social-pay',
+        title: 'Access Social Pay',
+        thumbnail: '/portfolio/social-pay.png',
+        description: 'Simple and Secure SME payment platform',
+        body: 'Simple and Secure SME payment platform',
+        status: 'published',
+        type: 'post',
+        xApp_Policy_ID: 'EmmsDan Bear:: adf asdasd as',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ], {});
+  },
+
+  down: (queryInterface) => {
+    return queryInterface.bulkDelete('BlogPosts');
+  }
+};

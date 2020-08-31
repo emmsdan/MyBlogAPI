@@ -37,6 +37,9 @@ export default class DBModel {
     };
   }
 
+  whereTypeIs(type) {
+    return typeof type !== 'string' ? { type: 'fake_user' }: { type };
+  }
   async createRecord(iObject, transaction=null) {
     try {
       Utils.isObject(iObject, Lang.t('INVALID_TABLE_MODEL'));

@@ -14,6 +14,12 @@ export default class BlogService extends DBModel {
     this.model = BlogPosts;
   }
 
+  validStatus(status) {
+    const allStatus = {
+      'draft': 'draft', 'deleted': 'deleted', 'published': 'published', 'trach': 'trach'
+    };
+    return allStatus[status.toLowerCase()] || 'draft';
+  }
   /**
 	 * Add new Blog Record to table
 	 * @param {object} body contains object model for Blog to be added to the table

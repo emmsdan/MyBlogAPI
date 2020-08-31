@@ -8,7 +8,7 @@ module.exports = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     quoteIdentifiers: false,
-    logging: false,
+    logging: true,
     ...(process.env.DATABASE_URL ? {use_env_variable: 'DATABASE_URL'} : ''),
   },
   test: {
@@ -17,7 +17,7 @@ module.exports = {
     password: process.env.TEST_DATABASE_PASSWORD,
     database: process.env.TEST_DATABASE_NAME,
     host: process.env.TEST_DATABASE_HOST,
-    logging: false,
+    logging: true,
     quoteIdentifiers: false,
     ...(process.env.DATABASE_URL ? {use_env_variable: 'TEST_DATABASE_URL'} : ''),
   },
