@@ -7,18 +7,47 @@ import {
   authorizedAdminUser
 } from '@middleware/validation';
 
-import { joify } from '@middleware/datatype';
-// import { BlogSchema } from '@schema';
+import { DataTypes, joify } from '@middleware/datatype';
+import { BlogPostSchema as BlogSchemaSample } from '@schema';
 // import Response from '@response';
 
-import AllBlog, { getBlogInfo, getUsersBlog } from './blog';
+import AllBlog, {
+  getBlogInfo, getUsersBlog, updateBlogInfo, deleteBlog, createBlog, 
+} from './blog';
 const BLOG = routes.BLOG;
 export const autoPath = BLOG.path.toLowerCase();
 const BlogRoute = express.Router();
+/** ------------------ | create new post | --------------- **/
+let PostSchema = joify(BlogSchemaSample(DataTypes), [], null);
+BlogRoute.post(
+  BLOG.FETCH_ALL,
+  authorizedAdminUser,
+  joiValidatorHandler(PostSchema),
+  exceptionHandler(createBlog));
 
+/** ------------------ | End of create post | --------- **/
+
+/** ------------------ | update a post | --------------- **/
+PostSchema = joify(BlogSchemaSample, [['blogId', 'string']], null);
+BlogRoute.patch(
+  BLOG.FETCH,
+  authorizedAdminUser,
+  joiValidatorHandler(PostSchema),
+  exceptionHandler(updateBlogInfo));
+
+/** ------------------ | End of update post | --------- **/
+
+/** ------------------ | delete a post | --------------- **/
+PostSchema = joify({}, [['blogId', 'string']], null);
+BlogRoute.delete(
+  BLOG.FETCH,
+  joiValidatorHandler(PostSchema),
+  exceptionHandler(deleteBlog));
+
+/** ------------------ | End of delete a post | --------- **/
 
 /** ------------------ | get all  user post (paginated) | --------------- **/
-const BlogsSchema = joify({}, [['pageSize', 'number'], ['page', 'number'], ['userId', 'string', 'optional']], null);
+const BlogsSchema = joify({}, [['pageSize', 'number'], ['page', 'number'], ['userId', 'string', 'optional'], ['type', 'string', 'optional']], null);
 BlogRoute.get(
   BLOG.FETCH_USER,
   joiValidatorHandler(BlogsSchema),

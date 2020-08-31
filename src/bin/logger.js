@@ -40,7 +40,7 @@ class BLogger extends EventEmitter {
   }
   writeToFile(error, type){
     // const
-    const extention = 'blog';
+    const extention = 'utils';
     const fname = process.argv[1];
     // console.log(, this)
     const filename = `${this.__path}/${this.date().format}-@${fname.split('/').join(':')}.${extention}`;

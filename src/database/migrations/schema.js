@@ -16,13 +16,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      deletedAt: {
+        allowNull: true,
+        type: Sequelize.DATE,
+      },
     };
+    const extras = { paranoid: true };
     const BlogPost = queryInterface.createTable(
       'BlogPosts',
       {
         ...BlogPostSchema(Sequelize),
         ...createAt
-      });
+      }, extras );
 
     const initiator = queryInterface.createTable(
       'Initiators',
@@ -38,6 +43,7 @@ module.exports = {
         ...createAt
       },  {
         freezeTableName: true,
+        ...extras
       });
 
     const BlogView = queryInterface.createTable(
@@ -45,14 +51,14 @@ module.exports = {
       {
         ...BlogViewSchema(Sequelize),
         ...createAt
-      });
+      }, extras );
 
     const BlogComment = queryInterface.createTable(
       'BlogComments',
       {
         ...BlogCommentSchema(Sequelize),
         ...createAt
-      });
+      }, extras );
     return Promise.all([BlogPost, BlogView, BlogComment, initiator]);
   },
   down: (queryInterface) => Promise.all([

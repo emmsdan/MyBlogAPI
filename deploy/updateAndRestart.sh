@@ -8,7 +8,7 @@ set -e
 rm -rf /home/ubuntu/blog/
 
 # clone the repo again
-# git clone https://"$GIT_USERNAME":"$GIT_PASSWORD"@gitlab.com/emmsdan/blog.git
+# git clone https://"$GIT_USERNAME":"$GIT_PASSWORD"@gitlab.com/emmsdan/utils.git
 
 $Gitclone
 

@@ -17,28 +17,32 @@ const BlogPostSchema = (DataTypes) => {
     slug: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      use: true,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
+      use: true,
     },
     body: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.TEXT,
+      allowNull: false,
+      use: true,
     },
     thumbnail: {
       type: DataTypes.STRING,
     },
     status: {
-      type: DataTypes.ENUM(['draft', 'deleted', 'published', 'trach']),
+      type: DataTypes.ENUM('draft', 'deleted', 'published', 'trach'),
       defaultValue: 'draft'
     },
     type: {
-      type: DataTypes.ENUM(['image', 'video', 'file', 'post']),
+      type: DataTypes.ENUM('image', 'video', 'file', 'post'),
       defaultValue: 'post'
     },
     ...appSettingSchema(DataTypes)
