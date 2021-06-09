@@ -1,0 +1,42 @@
+image: node:8.9.0
+
+stages:
+  - test
+  - staging
+  # - deploy
+
+# lint and test are two different jobs in the same stage.
+# This allows us to run these two in parallel and making build faster
+
+lint:
+  stage: test
+  script:
+    - npm install
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - npm run lint
+
+test:
+  stage: test
+  script:
+    - npm install
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - npm run test
+
+staging:
+    type: deploy
+    stage: staging
+    image: ruby:latest
+    script:
+      - apt-get update -qy
+      - apt-get install -y ruby-dev
+      - gem install dpl
+      - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+    only:
+        - develop
+
+# deploy:dev:
+#   stage: deploy
+#   script:
+#     - bash deploy/deploy.sh
+#   only:
+#     - master

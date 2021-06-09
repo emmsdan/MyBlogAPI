@@ -1,0 +1,40 @@
+/**
+ * @id- 1622993613837
+ * @line- null
+ * @type- uncaughtException
+ * @datetime- Sun Jun 06 2021 16:33:33 GMT+0100 (West Africa Standard Time)
+ * @filename- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ * @description- Error: Cannot find module '../services/utils'
+Require stack:
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/middleware/validation.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/modules/blog/blog.route.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/api.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/app.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ **//**
+ * @id- 1622993676747
+ * @line- null
+ * @type- uncaughtException
+ * @datetime- Sun Jun 06 2021 16:34:36 GMT+0100 (West Africa Standard Time)
+ * @filename- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ * @description- Error: Cannot find module '../../services/utils'
+Require stack:
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/modules/blog/blog.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/modules/blog/blog.route.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/api.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/app.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ **//**
+ * @id- 1622993710616
+ * @line- null
+ * @type- uncaughtException
+ * @datetime- Sun Jun 06 2021 16:35:10 GMT+0100 (West Africa Standard Time)
+ * @filename- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ * @description- Error: Cannot find module '../services/blogxs'
+Require stack:
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/middleware/validation.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/modules/blog/blog.route.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/api.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/app.js
+- /Users/emmanueldaniel/Repo/emmsdan/api/blog/src/bin/api.js
+ **/
